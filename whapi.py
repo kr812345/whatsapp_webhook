@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from typing import List
 import requests
+import uvicorn
 import os
 
 load_dotenv() 
@@ -95,5 +96,4 @@ host = os.getenv('HOST') or '0.0.0.0'
 
 print(host, port)
 if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host=host, port=port)
+    uvicorn.run(app, host='0.0.0.0', port=5000)
