@@ -5,3 +5,4 @@ collect_data.py
 eleven_labs_ai_agent.py
 hello.csv
 main.py
+__pycache__
