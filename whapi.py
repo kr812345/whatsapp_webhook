@@ -43,7 +43,7 @@ def send_image_message(phone_number, image_url, caption=''):
     """Send an image message via WhatsApp"""
     url = f'{WHAPI_BASE_URL}/messages/image'
     headers = {'Authorization': f'Bearer {WHAPI_TOKEN}'}
-    payload = {'to': phone_number, 'image': image_url, 'caption': caption}
+    payload = {'to': phone_number, 'media': image_url, 'caption': caption}
     response = requests.post(url, json=payload, headers=headers)
     return response.json()
 
@@ -90,6 +90,10 @@ def broadcast(payload: BroadcastMessage):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
+port = os.getenv('PORT') or 5000
+host = os.getenv('HOST') or '0.0.0.0'
+
+print(host, port)
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app)
+    uvicorn.run(app, host=host, port=port)

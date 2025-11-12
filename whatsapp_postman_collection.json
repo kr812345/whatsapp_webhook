@@ -1,0 +1,65 @@
+{
+  "info": {
+    "name": "WhatsApp API Test Collection",
+    "_postman_id": "whatsapp-api-test-collection",
+    "description": "Collection for testing local WhatsApp API endpoints in this project (send text, send image, broadcast). Replace variables as needed.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "send_text",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{apiKey}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"phone_number\": \"15551234567\",\n  \"message\": \"Test message: hello from automated API test.\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": { "raw": "{{baseUrl}}/send/text" }
+      },
+      "response": []
+    },
+    {
+      "name": "send_image",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{apiKey}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"phone_number\": \"15551234567\",\n  \"image_url\": \"https://example.com/test-image.jpg\",\n  \"caption\": \"Test image upload\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": { "raw": "{{baseUrl}}/send/image" }
+      },
+      "response": []
+    },
+    {
+      "name": "broadcast",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{apiKey}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numbers\": [\"15550000001\", \"15550000002\", \"15550000003\"],\n  \"message\": \"Hello from broadcast test\",\n  \"message_type\": \"text\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": { "raw": "{{baseUrl}}/broadcast" }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000", "type": "string" },
+    { "key": "apiKey", "value": "YOUR_API_TOKEN", "type": "string" }
+  ]
+}

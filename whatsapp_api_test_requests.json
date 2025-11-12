@@ -1,0 +1,52 @@
+[
+  {
+    "name": "send_text",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:5000/send/text",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_TOKEN"
+      },
+      "body": {
+        "phone_number": "15551234567",
+        "message": "Test message: hello from automated API test."
+      }
+    },
+    "notes": "Endpoint in this project: /send/text (FastAPI). Replace Authorization if your app requires it."
+  },
+  {
+    "name": "send_image",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:5000/send/image",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_TOKEN"
+      },
+      "body": {
+        "phone_number": "15551234567",
+        "image_url": "https://example.com/test-image.jpg",
+        "caption": "Test image upload"
+      }
+    },
+    "notes": "Endpoint in this project: /send/image (FastAPI). Ensure the image URL or media handling matches your provider."
+  },
+  {
+    "name": "broadcast",
+    "request": {
+      "method": "POST",
+      "url": "http://localhost:5000/broadcast",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_API_TOKEN"
+      },
+      "body": {
+        "numbers": ["15550000001", "15550000002", "15550000003"],
+        "message": "Hello from broadcast test",
+        "message_type": "text"
+      }
+    },
+    "notes": "Endpoint in this project: /broadcast (FastAPI). Useful to test batch send logic."
+  }
+]
