@@ -110,7 +110,7 @@ On error, the API raises an HTTPException (commonly with status code 400), and r
     curl -X POST http://localhost:8000/send/text -H "Content-Type: application/json" -d '{"phone_number":"+1234567890","message":"Hello"}'
 
 - Send image:
-    curl -X POST http://localhost:8000/send/image -H "Content-Type: application/json" -d '{"phone_number":"+1234567890","image_url":"https://example.com/img.jpg","caption":"Nice pic"}'
+    curl -X POST http://localhost:8000/send/image -H "Content-Type: application/json" -d '{"phone_number":"+1234567890","media":"https://example.com/img.jpg","caption":"Nice pic"}'
 
 - Broadcast:
     curl -X POST http://localhost:8000/broadcast -H "Content-Type: application/json" -d '{"numbers":["+123","+456"],"message":"Hello everyone","message_type":"text"}'
