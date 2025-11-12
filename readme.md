@@ -115,5 +115,3 @@ On error, the API raises an HTTPException (commonly with status code 400), and r
 - Broadcast:
     curl -X POST http://localhost:8000/broadcast -H "Content-Type: application/json" -d '{"numbers":["+123","+456"],"message":"Hello everyone","message_type":"text"}'
 
-## License
-Include your project's license here (e.g., MIT) as appropriate.
